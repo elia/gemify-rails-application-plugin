@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+if ARGV
+  system('<%= application_name %>-'+ARGV.pop, *ARGV)
+else
+  %w[stop install check-database start].each do |command|
+    exec(File.dirname(__FILE__)+'/<%= application_name %>-'+command)
+  end
+end

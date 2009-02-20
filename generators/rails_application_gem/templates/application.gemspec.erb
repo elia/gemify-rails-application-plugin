@@ -1,0 +1,42 @@
+#!/usr/bin/env ruby
+require 'rake'
+require 'rubygems'
+puts '=> Loading Rails environment...'
+require File.dirname(__FILE__)+'/config/environment.rb'
+
+Gem::Specification.new do |s|
+  
+  # GEM INFO
+	s.name        = 'skyplexnet_webapp'
+	s.version     =  WEBAPP_VERSION
+	s.summary     = 'Skyplexnet CMC and SM.'
+	s.description = 'Skyplexnet Configuration Management Console and Service Manager.'
+	
+	# AUTHOR
+	s.authors     = 'Elia Schito'
+	s.email       = 'elia.schito@thalesaleniaspace.com'
+	
+	#FILES
+  s.files = File.read(File.join(Rails.root, '/Manifest.txt')).split
+	s.has_rdoc = false
+	s.require_paths = ["lib"]
+  s.executables << 'cmc'
+  s.executables << 'cmc-daemon'
+  # s.executables << 'cmc-multicast-agent'
+  
+  # DEPENDENCIES
+	s.required_ruby_version = '>= 1.8.6'
+  s.add_dependency('daemons',               '>= 1.0.10')
+  s.add_dependency('fastthread',            '>= 1.0.1')
+  s.add_dependency('gem_plugin',            '>= 0.2.3')
+  s.add_dependency('haml',                  '>= 2.0.5')
+  s.add_dependency('hoe',                   '>= 1.7.0')
+  s.add_dependency('mongrel_cluster',       '>= 1.1.4')
+  s.add_dependency('mongrel',               '>= 1.1.4')
+  s.add_dependency('mysql',                 '>= 2.7')
+  s.add_dependency('rake',                  '>= 0.8.1')
+  s.add_dependency('redgreen',              '>= 1.2.2')
+  s.add_dependency('rubyforge',             '>= 1.0')
+  s.add_dependency('sources',               '>= 0.0.1')
+  s.add_dependency('cgi_multipart_eof_fix', '>= 2.5.0')
+end

@@ -1,0 +1,10 @@
+Description:
+    Generates a gemspec for the application and a bin dir with commands for
+    start, stop, restart, install (or link) the application.
+
+Example:
+    ./script/generate rails_application_gem ApplicationName
+
+    This will create:
+        bin/application_name (Executable)
+        config/application_name.gemspec
